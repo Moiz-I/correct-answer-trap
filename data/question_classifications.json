@@ -1,0 +1,139 @@
+{
+  "classifications": {
+    "Q89443": {
+      "description": "Integer subtraction: (-8)-(-5)=?",
+      "classification": "procedural",
+      "rationale": "Students can apply 'two negatives make a positive' or 'subtracting a negative is like adding' rules without understanding why the rule works. The rule mechanically produces correct answers.",
+      "example_rule": "When subtracting a negative number, change to addition: (-8)-(-5) = (-8)+(+5) = -3"
+    },
+    "Q31778": {
+      "description": "Equivalent fractions: A/10 = 9/15, find A",
+      "classification": "procedural",
+      "rationale": "Cross-multiplication algorithm (A*15 = 9*10) or pattern matching (find common factor) can be applied mechanically. Students can solve without understanding why equivalent fractions have the same value.",
+      "example_rule": "Cross-multiply: A/10 = 9/15 means A*15 = 9*10, so A = 90/15 = 6"
+    },
+    "Q31774": {
+      "description": "Fraction division: 1/2 divided by 6",
+      "classification": "procedural",
+      "rationale": "'Flip and multiply' or 'Keep-Change-Flip' algorithm can be applied without understanding why dividing by a number is equivalent to multiplying by its reciprocal.",
+      "example_rule": "To divide by a whole number, multiply by its reciprocal: 1/2 / 6 = 1/2 * 1/6 = 1/12"
+    },
+    "Q32833": {
+      "description": "Fraction multiplication: 2/3 times 5",
+      "classification": "procedural",
+      "rationale": "'Multiply numerator by whole number, keep denominator' is a memorizable rule that produces correct answers without understanding what 2/3 of 5 means conceptually.",
+      "example_rule": "Multiply numerator by whole number: 2/3 * 5 = (2*5)/3 = 10/3"
+    },
+    "Q33472": {
+      "description": "Fraction addition: 1/3 + 2/5",
+      "classification": "procedural",
+      "rationale": "Common denominator algorithm (find LCD, convert fractions, add numerators) can be executed mechanically. Students often successfully apply this without understanding why common denominators are needed.",
+      "example_rule": "Find common denominator: 1/3 + 2/5 = 5/15 + 6/15 = 11/15"
+    },
+    "Q32829": {
+      "description": "Linear equation: 2y = 24, find y",
+      "classification": "procedural",
+      "rationale": "'Divide both sides by the coefficient' is a standard algorithm. Students can solve without understanding the balance/equivalence principle underlying equation solving.",
+      "example_rule": "Divide both sides by coefficient: 2y = 24 means y = 24/2 = 12"
+    },
+    "Q33471": {
+      "description": "Fraction of quantity: 3/8 of 24 balls are yellow, how many green?",
+      "classification": "conceptual",
+      "rationale": "Requires understanding what 'fraction of a quantity' means conceptually. Students must interpret '3/8 of 24' as a part-whole relationship and recognize that finding green balls requires the complement. Multiple conceptual steps involved.",
+      "example_rule": null
+    },
+    "Q31772": {
+      "description": "Fraction of shape: What fraction is not shaded? (visual triangle)",
+      "classification": "conceptual",
+      "rationale": "Requires visual interpretation of part-whole relationships. Students must count parts, identify the whole, and understand fractions as parts of a whole. The visual component adds conceptual demand.",
+      "example_rule": null
+    },
+    "Q109465": {
+      "description": "Probability interpretation: P=0.9, describe likelihood",
+      "classification": "conceptual",
+      "rationale": "Requires understanding the probability scale (0 to 1) and what values mean qualitatively. No algorithm produces the answer - students must understand probability as a measure of likelihood.",
+      "example_rule": null
+    },
+    "Q104665": {
+      "description": "Inverse proportion: 3 people take 192 hours, how long for 12 people?",
+      "classification": "conceptual",
+      "rationale": "Requires understanding inverse proportional relationships - that more workers means less time per worker, not a direct scaling. Students who apply direct proportion (multiply by 4) will get wrong answers.",
+      "example_rule": null
+    },
+    "Q76870": {
+      "description": "Polygon angles: Interior angle 144 degrees, how many sides?",
+      "classification": "conceptual",
+      "rationale": "Requires understanding the relationship between interior angles and number of sides in regular polygons. Students must understand why angles relate to sides, not just apply a formula.",
+      "example_rule": null
+    },
+    "Q32835": {
+      "description": "Comparing decimals: Which number is greatest?",
+      "classification": "conceptual",
+      "rationale": "Requires understanding place value and decimal notation. Common misconceptions (longer decimals are larger) arise from lack of conceptual understanding that cannot be overcome by rules alone.",
+      "example_rule": null
+    },
+    "Q33474": {
+      "description": "Fraction of fraction: 2/3 cake, eat 1/3 of that piece - what fraction of whole?",
+      "classification": "conceptual",
+      "rationale": "Requires understanding part-of-part relationships (1/3 of 2/3). Students must conceptualize what taking a fraction of a fraction means, not just multiply. The 'whole cake' framing adds conceptual complexity.",
+      "example_rule": null
+    },
+    "Q31777": {
+      "description": "Fraction of quantity: 3/5 of 120 counters are red, how many red?",
+      "classification": "conceptual",
+      "rationale": "Requires understanding 'fraction of quantity' as a part-whole relationship. While calculation is straightforward (120 * 3/5), understanding WHY this works requires conceptual understanding of fractions as operators.",
+      "example_rule": null
+    },
+    "Q91695": {
+      "description": "Dot patterns: Given patterns 1-3, find pattern 4",
+      "classification": "mixed",
+      "rationale": "Pattern recognition has both procedural elements (identifying the rule/sequence) and conceptual elements (understanding why the pattern grows that way). Students may find the pattern without understanding the underlying structure, or vice versa.",
+      "example_rule": "Could be solved procedurally (find difference pattern) or conceptually (understand geometric growth)"
+    }
+  },
+  "criteria": {
+    "procedural": {
+      "definition": "A question is PROCEDURAL if there exists a memorizable rule or algorithm that can produce the correct answer without understanding why the rule works.",
+      "indicators": [
+        "Standard algorithm exists that reliably produces correct answer",
+        "Rule can be stated as a mechanical procedure (e.g., 'flip and multiply')",
+        "Students can succeed without understanding underlying mathematical principles",
+        "Incorrect conceptual understanding can still yield correct answers"
+      ]
+    },
+    "conceptual": {
+      "definition": "A question is CONCEPTUAL if the correct answer requires understanding mathematical relationships or principles, and rule application alone is insufficient.",
+      "indicators": [
+        "No single algorithm reliably produces correct answer",
+        "Understanding 'why' is necessary, not just 'how'",
+        "Visual interpretation or meaning-making required",
+        "Multiple conceptual steps or relationships must be understood"
+      ]
+    },
+    "mixed": {
+      "definition": "A question is MIXED if both procedural and conceptual elements contribute to solving it, with neither being clearly dominant.",
+      "indicators": [
+        "Could be solved either way with roughly equal validity",
+        "Pattern recognition involves both rule-finding and understanding",
+        "Success depends on individual approach rather than question type"
+      ]
+    }
+  },
+  "summary": {
+    "procedural_count": 6,
+    "conceptual_count": 8,
+    "mixed_count": 1,
+    "total_questions": 15,
+    "procedural_questions": ["Q89443", "Q31778", "Q31774", "Q32833", "Q33472", "Q32829"],
+    "conceptual_questions": ["Q33471", "Q31772", "Q109465", "Q104665", "Q76870", "Q32835", "Q33474", "Q31777"],
+    "mixed_questions": ["Q91695"]
+  },
+  "metadata": {
+    "classifier": "manual",
+    "classification_date": "2026-01-29",
+    "pre_registered": true,
+    "source": "WU-102-question-type-classification.md",
+    "notes": "Classifications defined before analysis per pre-registration protocol. Based on theoretical framework distinguishing procedural knowledge (rules/algorithms) from conceptual understanding (relationships/principles).",
+    "theoretical_basis": "The procedural/conceptual distinction follows mathematics education literature (Hiebert & Lefevre, 1986; Star, 2005). Key criterion: can a student with incorrect conceptual understanding still produce correct answers via rule application?"
+  }
+}

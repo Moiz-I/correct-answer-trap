@@ -1,6 +1,6 @@
 # Supplementary Materials
 
-**Paper:** The Correct Answer Trap: Characterising AI Tutor Blind Spots in Student Feedback
+**Paper:** Catching The Correct Answer Trap: Characterising AI Tutor Blind Spots When Analysing Student Reasoning
 
 ## Prompt Details
 
@@ -33,33 +33,37 @@ Diagnosis:
 
 ### Model Configurations
 
-| Model          | API/Source               | Temperature | Notes                                     |
-| -------------- | ------------------------ | ----------- | ----------------------------------------- |
-| Gemini 3 Flash | `gemini-3-flash-preview` | 0           | Tested with low and high thinking budgets |
-| Llama-3.3-70B  | Groq                     | 0           |                                           |
-| Llama-3.1-8B   | Groq                     | 0           |                                           |
-| T5-base        | Fine-tuned               | N/A         | LoRA fine-tuning on classification task   |
+| Model | API/Source | Model ID | Temperature | Notes |
+|-------|-----------|----------|-------------|-------|
+| Gemini 3 Flash | Google AI | `gemini-3-flash-preview-04-17` | 0 | Tested with low (1024 token) and high (8192 token) thinking budgets |
+| Llama-3.3-70B | Groq | `llama-3.3-70b-versatile` | 0 | |
+| Llama-3.1-8B | Groq | `llama-3.1-8b-instant` | 0 | |
+| T5-small | Fine-tuned | `t5-small` | N/A | LoRA fine-tuning (r=8, alpha=16) on classification task |
+| BERT-base | Fine-tuned | `bert-base-uncased` | N/A | Standard classification head, included as architecture robustness check |
 
-## Question Type Classifications
+All models accessed March 2026.
 
-Following Hiebert and Lefevre (1986), we classified each Eedi question type as procedural, conceptual, or mixed before analysis.
+## Question Types
 
-**Procedural (6 types):** Questions where a memorisable rule can produce correct answers without understanding.
+The Eedi dataset contains 15 unique question types. Following Hiebert and Lefevre (1986), we classified each as procedural (P), conceptual (C), or mixed (M) before analysis. As discussed in RQ2, the vulnerability to the correct answer trap is item-specific rather than category-wide.
 
-- Integer subtraction (e.g., (-8) - (-5))
-- Equivalent fractions (e.g., A/10 = 9/15)
-- Fraction division (e.g., 1/2 ÷ 6)
-- [Additional types in dataset]
-
-**Conceptual (8 types):** Questions requiring understanding that rote rules cannot shortcut.
-
-- Fraction-of-shape (visual interpretation)
-- Comparing decimals
-- [Additional types in dataset]
-
-**Mixed (1 type):**
-
-- Dot patterns (sequence recognition)
+| Question | Classification | TM Count |
+|----------|---------------|----------|
+| Integer subtraction: (-8) - (-5) | P | 138 |
+| Equivalent fractions: A/10 = 9/15 | P | 107 |
+| Fraction division: 1/2 divided by 6 | P | 19 |
+| Fraction multiplication: 2/3 times 5 | P | 5 |
+| Fraction addition: 1/3 + 2/5 | P | 3 |
+| Linear equation: 2y = 24 | P | 1 |
+| Fraction of quantity: 3/8 of 24 | C | 10 |
+| Fraction of shape (visual) | C | 9 |
+| Probability: P = 0.9, describe | C | 7 |
+| Inverse proportion: 3 people, 192 hrs | C | 6 |
+| Polygon angles: 144 degrees | C | 5 |
+| Comparing decimals | C | 16 |
+| Fraction of fraction: 2/3 then 1/3 | C | 4 |
+| Fraction of quantity: 3/5 of 120 | C | 0 |
+| Dot patterns (sequence) | M | 17 |
 
 ## Statistical Analysis
 
@@ -67,18 +71,16 @@ We use two statistical tests throughout the paper.
 
 **Fisher's exact test** compares proportions between independent groups. We use this for:
 
-- RQ2: Comparing True_Misconception rates between procedural and conceptual questions
-- RQ4: Comparing detection rates between correct-answer and wrong-answer cases in PRM800K
-
-We report odds ratios to quantify effect size. An odds ratio of 5.6 (RQ2) means a response to a procedural question is 5.6 times more likely to be a True_Misconception case than a response to a conceptual question.
+- Sensitivity analysis (RQ2): Comparing TM rates between procedural and conceptual questions, and testing whether the effect persists when the two highest-concentration items are excluded (odds ratio collapses from 5.6 to 1.0, p = 0.48)
+- PRM800K validation (Discussion): Comparing detection rates between correct-answer and wrong-answer cases
 
 **McNemar's test** compares paired classifiers evaluated on the same samples. We use this for:
 
-- RQ3: Comparing T5 vs Gemini on the same 61 True_Misconception test cases
-- Prompt ablation: Comparing task-specific vs PedCoT prompts on the same samples
+- RQ3: Comparing T5 vs Gemini on the same 61 TM test cases
+- Prompt validation: Comparing task-specific vs PedCoT prompts on the same samples
 
 McNemar's test is appropriate here because the models are evaluated on identical cases, making the observations paired rather than independent.
 
 **Confidence intervals** use the Wilson score method, which provides accurate coverage for proportions even with small sample sizes (unlike the normal approximation, which can produce impossible intervals near 0 or 1).
 
-We use $p < 0.05$ as the significance threshold throughout.
+We use p < 0.05 as the significance threshold throughout.
